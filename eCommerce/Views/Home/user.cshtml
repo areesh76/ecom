@@ -1,0 +1,101 @@
+﻿@using Commerce.DataServices
+@model List<user>
+
+@{
+    ViewBag.Title = "user";
+}
+<h2 align="center">SignUp</h2><br/>
+<head>
+    <style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.asad {
+  margin-left: 330px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 25px;
+  width: 300px;
+}
+    </style>
+</head>
+
+<body>
+    <form id="UserForm">
+        <div class="asad">
+            <div class="form-group">
+                <input type="text" class="form-control" name="firstName" placeholder="First Name">
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="lastName" placeholder="Last Name">
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="userName" placeholder="User Name">
+            </div>
+
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Email">
+            </div>
+
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+
+            <div class="form-group">
+                <input type="date" class="form-control" name="DOB" placeholder="DD-MM-YY">
+            </div>
+
+            <button type="submit" onclick="isValid();" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</body>
+
+<script type="text/javascript">
+    /*function isValid() {
+        var a = document.getElementsByName("email");
+            if (users.email == a) {
+                alert("Email already exist!");
+            }
+            else {
+                NewUser();
+            }            foreach (var users in Model)
+            {
+                string a =
+                if (users.email ==)
+            }
+    }*/
+    function NewUser() {
+        debugger;
+        var jqhx = $.ajax({
+            type: "POST",
+            url: "/Home/NewUser",
+            data: $("#UserForm").serialize()
+        }).done(function (data) {
+            alert(data);
+        });
+    }
+</script>
